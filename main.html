@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+	<title>Color Board</title>
+	<style type="text/css">
+		.container {
+			display: grid;
+			grid-template-columns: repeat(40, 1fr);
+			grid-gap: 2px;
+			width: 800px;
+			height: 800px;
+			background-color: #eee;
+		}
+
+		.square {
+			background-color: #fff;
+			transition: background-color 1s ease;
+		}
+
+		.square:hover {
+			background-color: #007bff;
+		}
+	</style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-
+	<div class="container">
+		<!-- Generate 800 boxes -->
+		<?php for ($i = 0; $i < 800; $i++): ?>
+			<div class="square"></div>
+		<?php endfor; ?>
+	</div>
+	<script>
+		// Change back the color after 1s
+		const squares = document.querySelectorAll('.square');
+		squares.forEach(square => {
+			square.addEventListener('mouseover', () => {
+				setTimeout(() => {
+					square.style.backgroundColor = '#fff';
+				}, 1000);
+			});
+		});
+	</script>
 </body>
-
 </html>
+
